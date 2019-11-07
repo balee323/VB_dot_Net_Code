@@ -1,0 +1,13 @@
+LEMONADE/sour
+COKE/rum
+WATER/most important molecule
+BRANDY/candy
+LIQUOR/distilled
+WHISKEY/mash
+WINE/no hint, too easy
+COFFEE/aroma
+BEER/belly
+MILKSHAKE/my ___ is better than yours....
+COCKTAIL/party drink
+MILK/white
+JUICE/sweet
