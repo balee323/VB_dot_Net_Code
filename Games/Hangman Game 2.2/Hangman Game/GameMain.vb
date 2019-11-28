@@ -12,13 +12,16 @@
 
     Dim CurrentWord As String = ""   'this is the current word in use.
     Dim WordAsCharacters(200) As Char   'keep this as gobal, gets reset later
-    Dim Hanged As Integer = 0
+    Dim WrongGuess As Integer = 0
     Dim CurrentWordLength As Integer = 0
     Dim BlankCharArray(200) As Char  'keep as global. gets reset each round, I give up will just make 200 spots..
 
     Dim ContinueGame As Boolean = False 'accepts keystokes, false=no, true=yes
     Dim HighScore() As String
     Dim HighestScore As String = ""
+
+    Dim PigImages As List(Of Image)
+    Dim SadPigImages As List(Of Image)
 
     'VARIABLES for ensuring that only 1 keystroke is registered
     Dim PressedA As Boolean = False
@@ -53,16 +56,10 @@
 
     'for Each Round
     Private Sub BtnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnStart.Click
+        LblWinner.Hide()
+        LblGameOver.Hide()
 
-        'HighScore = IO.File.ReadAllLines(My.Resources.HighScore)
-
-        ' HighScore = IO.File.ReadAllLines("HighScore.Txt")
-
-
-        '    HighestScore = HighScore(0)
-
-
-        '  MessageBox.Show(HighestScore)
+        PicBoxPig.Image = Nothing
 
         TxtHighScore.Text = (HighestScore)
 
@@ -73,9 +70,9 @@
 
         PlayRound() 'plays each round using a string element from LoadedWords()
 
-
         GameCounter = GameCounter + 1 'tracks the game iterations
 
+        'resets counter back to first word
         If GameCounter = WordArrayElements Then
 
             GameCounter = 0
@@ -88,7 +85,7 @@
     Sub CheckFileLoad()
 
 
-        Hanged = 0 ' reset
+        WrongGuess = 0 ' reset
         BlankWord = "" 'reset
         ClearCharArray() 'reset
         CurrentWord = ""
@@ -97,15 +94,12 @@
         FoundCount = 0
 
 
-
-
-
         'only occurs if no loaded file is selected before the player clicks start
         If FileName = "" Then
             DefaultLoad() 'loads the word VISUALBASIC if no file is selected
 
         Else
-            
+
             WordArrayElements = LoadedString.Length() 'this is to interate the game rounds
 
         End If
@@ -113,16 +107,9 @@
 
 
         'this all deals with a file not being loaded and the default word being used
-
         If FileName = "" And GameCounter <= WordArrayElements Then
             GameCounter = 0 'restarts from the begining of word list if there are no more words in the list
-            '   MessageBox.Show("There are :" & WordArrayElements & "  Words loaded")
-        Else
-            '   MessageBox.Show("There are :" & WordArrayElements & "  Words loaded")
-
         End If
-
-
 
 
         If FileName <> "" Then
@@ -214,21 +201,15 @@
         PressedY = False
         PressedZ = False
 
-     
+
         UnderScores()  'CONVERTS THE WORD TO UNDERSCORES, seems ok., dont think I need?
 
         ToSingleBlanks()  'setting char array to blanks  (also appears to work!)  
 
         ToSingleLetters()  'Returns the current word as an character array
 
-
-       
-
     End Sub
 
-
-
-    
     Sub UnderScores()
 
         Dim i As Integer = 0
@@ -241,14 +222,7 @@
             i = i + 1
         Loop
 
-        '  MessageBox.Show(BlankWord)
-
-
-
-
     End Sub
-
-
 
 
     'converts all the blanks to characters, returns the underscore String as characters with a space between each character.
@@ -283,13 +257,7 @@
         Loop While i <= (ArrayLength)
 
 
-
-        ' MessageBox.Show("Number of chacters is: " & CStr(SingleLetter.Length()))  'correct  says 11! right, oh but counting spaces I Bet!
-        '  MessageBox.Show(SingleLetter)  'display the character array.
-
         TxtWordBox.Text = BlankCharArray  'displays the blanks
-
-
 
 
     End Sub
@@ -308,7 +276,6 @@
         '    MessageBox.Show(CStr(ArrayLength)) '21 is right!
 
         Do
-            ' SingleLetter(i) = StrTestWord.Chars(k)  'only showing half of the word...
 
             WordAsCharacters(i) = CurrentWord.Chars(k)
 
@@ -322,8 +289,6 @@
             k = k + 1
         Loop While i <= ((CurrentWordLength * 2) - 1)
 
-
-
     End Sub
 
 
@@ -333,8 +298,8 @@
 
         Dim Letter As Char
 
-        
-   
+
+
 
         If ContinueGame = True Then
 
@@ -666,7 +631,7 @@
         ' MessageBox.Show(LetterCheck)  'works
 
         If Found = False Then
-            Hanged = Hanged + 1
+            WrongGuess = WrongGuess + 1
         End If
         ' MessageBox.Show(CStr(Hanged)) 'works too
 
@@ -693,65 +658,80 @@
 
         TxtWordBox.Text = (BlankCharArray)
 
-
-        'this is the problem
         If FoundCount = CurrentWordLength Then  'check FoundCount
             ContinueGame = False 'ends keyboard input
             Score = Score + (FoundCount * 25)
             TxtScore.Text = (CStr(Score))
-            MessageBox.Show("Winner")
+            LblWinner.Show()
+
+
+            Dim random = New Random(DateTime.Now.Second).Next(PigImages.Count - 1)
+            PicBoxPig.Image = PigImages.Item(random)
+
         End If
 
 
     End Sub
-
-
-
 
 
     Sub KillStickMan()
 
         '   MessageBox.Show(CStr(Hanged) & " Strikes")  'works here too...
 
-        If Hanged >= 1 Then
+        Dim difficultyFactor As Integer = CInt((GetDifficultyTries() / 5))
+
+
+
+
+        If WrongGuess >= difficultyFactor * 1 Then
             PIC1.Visible = False
-            'MessageBox.Show("First If Works")
         End If
 
 
-        If Hanged >= 2 Then
+        If WrongGuess >= difficultyFactor * 2 Then
             PIC2.Visible = False
-            'MessageBox.Show("Second If Works")
         End If
 
 
-        If Hanged >= 3 Then
+        If WrongGuess >= difficultyFactor * 3 Then
             PIC3.Visible = False
         End If
 
 
-        If Hanged >= 4 Then
+        If WrongGuess >= difficultyFactor * 4 Then
             PIC4.Visible = False
         End If
 
 
-        If Hanged >= 5 Then
+        If WrongGuess >= difficultyFactor * 5 Then
             PIC5.Visible = False
-        End If
 
+            Dim random = New Random(DateTime.Now.Second).Next(SadPigImages.Count - 1)
+            PicBoxPig.Image = SadPigImages.Item(random)
+            PicBoxPig.Show()
 
-        If Hanged >= 6 Then
-            MessageBox.Show("Game Over!")
+            LblGameOver.Show()
             ContinueGame = False 'ends keyboard input
         End If
-
-
 
 
     End Sub
 
 
 
+    Function GetDifficultyTries() As Integer
+
+        Dim difficulty As String = ComboBox1.SelectedItem.ToString()
+
+        If difficulty.ToLower() = "easy" Then
+            Return 15
+        ElseIf difficulty.ToLower() = "medium" Then
+            Return 8
+        ElseIf difficulty.ToLower() = "hard" Then
+            Return 5
+        End If
+
+    End Function
 
 
     Sub ClearCharArray()
@@ -766,36 +746,24 @@
     End Sub
 
 
-
-
     'loads user selected txt file
     Sub LoadFile()
 
-        Dim i As Integer = 0
-
         Dim openFD As New OpenFileDialog()
 
-        'Dim StrFileName As String = ""
+        openFD.InitialDirectory() = Environment.CurrentDirectory + "\WordList"
+        openFD.Title = "Please Open a Text File for HANGMAN GAME"
+        openFD.Filter = "Text Files|*.txt"
+        openFD.ShowDialog()
+        FileName = openFD.FileName
 
-        'StrFileName = openFD.FileName
 
-        Do While FileName = "" And i <= 2
-
-            openFD.InitialDirectory() = "Environment.SpecialFolder.Documents"
-            openFD.Title = "Please Open a Text File for HANGMAN GAME"
-            openFD.Filter = "Text Files|*.txt"
-            openFD.ShowDialog()
-            FileName = openFD.FileName
-
-            i = i + 2
-        Loop
 
         If FileName = "" Then
-            ' FileName = "Test.txt"
             MessageBox.Show("No file selected, default Test file loaded.")
-            'LoadedWords(0) = "VISUALBASIC"
         Else
             ParseWords()
+            ComboBox1.Enabled = True
         End If
 
         GameCounter = 0 'since loaded a file
@@ -820,27 +788,18 @@
 
         'LoadedWords = IO.File.ReadAllLines(FileName) 'loaded into array, each element used
 
-
-
-
         LoadedString = IO.File.ReadAllLines(FileName) 'loaded into array, each element used
 
         Dim i As Integer = 0
 
         While i < LoadedString.Length()
 
-
-
             LoadedWords(i) = LoadedString(i).Substring(0, (LoadedString(i).IndexOf("/")))
             LoadedHints(i) = "Hint: " & LoadedString(i).Substring((LoadedString(i).IndexOf("/")) + 1)
-
-
 
             i = i + 1
 
         End While
-
-
 
     End Sub
 
@@ -861,6 +820,19 @@
 
     Private Sub GameMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        LblWinner.Hide()
+        LblGameOver.Hide()
+
+        PigImages = New List(Of Image)
+        PigImages.Add(My.Resources.Pig1)
+        PigImages.Add(My.Resources.pig2)
+        PigImages.Add(My.Resources.pig3)
+
+
+        SadPigImages = New List(Of Image)
+        SadPigImages.Add(My.Resources.Pig1Sad)
+        SadPigImages.Add(My.Resources.pig2Sad)
+        SadPigImages.Add(My.Resources.pig3Sad)
 
 
         Me.Focus()
@@ -868,4 +840,11 @@
 
 
     End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectionChangeCommitted
+
+        BtnStart.Enabled = True
+
+    End Sub
+
 End Class

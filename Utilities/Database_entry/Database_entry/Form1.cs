@@ -29,7 +29,7 @@ namespace Database_entry
         public Form1()
         {
             InitializeComponent();
-            conn.Open();
+           // conn.Open();
 
         }
 

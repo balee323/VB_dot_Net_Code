@@ -22,6 +22,7 @@ Partial Class GameMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GameMain))
         Me.TxtWordBox = New System.Windows.Forms.TextBox()
         Me.PIC6 = New System.Windows.Forms.PictureBox()
@@ -66,6 +67,11 @@ Partial Class GameMain
         Me.D = New System.Windows.Forms.Label()
         Me.A = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PicBoxPig = New System.Windows.Forms.PictureBox()
+        Me.LblWinner = New System.Windows.Forms.Label()
+        Me.LblGameOver = New System.Windows.Forms.Label()
         CType(Me.PIC6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PIC5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PIC4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,16 +80,17 @@ Partial Class GameMain
         CType(Me.PIC1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PicBoxPig, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TxtWordBox
         '
-        Me.TxtWordBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.21818!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtWordBox.Location = New System.Drawing.Point(29, 17)
+        Me.TxtWordBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.18182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtWordBox.Location = New System.Drawing.Point(40, 4)
         Me.TxtWordBox.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtWordBox.Multiline = True
         Me.TxtWordBox.Name = "TxtWordBox"
-        Me.TxtWordBox.Size = New System.Drawing.Size(597, 54)
+        Me.TxtWordBox.Size = New System.Drawing.Size(1283, 79)
         Me.TxtWordBox.TabIndex = 36
         Me.TxtWordBox.TabStop = False
         Me.TxtWordBox.Text = "HANGMAN!"
@@ -153,8 +160,9 @@ Partial Class GameMain
         'BtnStart
         '
         Me.BtnStart.BackColor = System.Drawing.Color.AliceBlue
+        Me.BtnStart.Enabled = False
         Me.BtnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnStart.Location = New System.Drawing.Point(653, 382)
+        Me.BtnStart.Location = New System.Drawing.Point(276, 640)
         Me.BtnStart.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnStart.Name = "BtnStart"
         Me.BtnStart.Size = New System.Drawing.Size(124, 72)
@@ -167,7 +175,7 @@ Partial Class GameMain
         '
         Me.BtnQuit.BackColor = System.Drawing.Color.AliceBlue
         Me.BtnQuit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnQuit.Location = New System.Drawing.Point(669, 522)
+        Me.BtnQuit.Location = New System.Drawing.Point(543, 658)
         Me.BtnQuit.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnQuit.Name = "BtnQuit"
         Me.BtnQuit.Size = New System.Drawing.Size(94, 54)
@@ -194,7 +202,7 @@ Partial Class GameMain
         '
         Me.BtnLoadFile.BackColor = System.Drawing.Color.AliceBlue
         Me.BtnLoadFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnLoadFile.Location = New System.Drawing.Point(670, 239)
+        Me.BtnLoadFile.Location = New System.Drawing.Point(40, 615)
         Me.BtnLoadFile.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnLoadFile.Name = "BtnLoadFile"
         Me.BtnLoadFile.Size = New System.Drawing.Size(94, 54)
@@ -205,12 +213,13 @@ Partial Class GameMain
         '
         'TxtHint
         '
+        Me.TxtHint.BackColor = System.Drawing.Color.LightGreen
         Me.TxtHint.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtHint.Location = New System.Drawing.Point(29, 86)
+        Me.TxtHint.Location = New System.Drawing.Point(40, 87)
         Me.TxtHint.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtHint.Multiline = True
         Me.TxtHint.Name = "TxtHint"
-        Me.TxtHint.Size = New System.Drawing.Size(597, 35)
+        Me.TxtHint.Size = New System.Drawing.Size(1283, 135)
         Me.TxtHint.TabIndex = 48
         Me.TxtHint.TabStop = False
         Me.TxtHint.Text = "Hints!!!"
@@ -220,7 +229,7 @@ Partial Class GameMain
         '
         Me.LblCurrent.AutoSize = True
         Me.LblCurrent.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblCurrent.Location = New System.Drawing.Point(3, 107)
+        Me.LblCurrent.Location = New System.Drawing.Point(11, 107)
         Me.LblCurrent.Name = "LblCurrent"
         Me.LblCurrent.Size = New System.Drawing.Size(121, 20)
         Me.LblCurrent.TabIndex = 49
@@ -233,9 +242,9 @@ Partial Class GameMain
         Me.GroupBox1.Controls.Add(Me.LblCurrent)
         Me.GroupBox1.Controls.Add(Me.TxtScore)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(646, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(1167, 248)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(130, 164)
+        Me.GroupBox1.Size = New System.Drawing.Size(156, 192)
         Me.GroupBox1.TabIndex = 50
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Score"
@@ -244,7 +253,7 @@ Partial Class GameMain
         '
         Me.LblHigh.AutoSize = True
         Me.LblHigh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblHigh.Location = New System.Drawing.Point(35, 43)
+        Me.LblHigh.Location = New System.Drawing.Point(11, 44)
         Me.LblHigh.Name = "LblHigh"
         Me.LblHigh.Size = New System.Drawing.Size(58, 20)
         Me.LblHigh.TabIndex = 51
@@ -266,12 +275,12 @@ Partial Class GameMain
         'M
         '
         Me.M.AutoSize = True
-        Me.M.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.M.Location = New System.Drawing.Point(463, 21)
+        Me.M.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.M.Location = New System.Drawing.Point(72, 367)
         Me.M.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.M.Name = "M"
         Me.M.Padding = New System.Windows.Forms.Padding(2)
-        Me.M.Size = New System.Drawing.Size(35, 30)
+        Me.M.Size = New System.Drawing.Size(51, 43)
         Me.M.TabIndex = 76
         Me.M.Text = "M"
         Me.M.Visible = False
@@ -279,12 +288,13 @@ Partial Class GameMain
         'Y
         '
         Me.Y.AutoSize = True
-        Me.Y.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Y.Location = New System.Drawing.Point(430, 51)
+        Me.Y.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Y.ForeColor = System.Drawing.Color.Maroon
+        Me.Y.Location = New System.Drawing.Point(328, 21)
         Me.Y.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Y.Name = "Y"
         Me.Y.Padding = New System.Windows.Forms.Padding(2)
-        Me.Y.Size = New System.Drawing.Size(33, 30)
+        Me.Y.Size = New System.Drawing.Size(45, 43)
         Me.Y.TabIndex = 75
         Me.Y.Text = "Y"
         Me.Y.Visible = False
@@ -292,12 +302,12 @@ Partial Class GameMain
         'V
         '
         Me.V.AutoSize = True
-        Me.V.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.V.Location = New System.Drawing.Point(329, 51)
+        Me.V.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.V.Location = New System.Drawing.Point(200, 160)
         Me.V.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.V.Name = "V"
         Me.V.Padding = New System.Windows.Forms.Padding(2)
-        Me.V.Size = New System.Drawing.Size(32, 30)
+        Me.V.Size = New System.Drawing.Size(45, 43)
         Me.V.TabIndex = 74
         Me.V.Text = "V"
         Me.V.Visible = False
@@ -305,12 +315,12 @@ Partial Class GameMain
         'W
         '
         Me.W.AutoSize = True
-        Me.W.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.W.Location = New System.Drawing.Point(362, 51)
+        Me.W.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.W.Location = New System.Drawing.Point(200, 224)
         Me.W.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.W.Name = "W"
         Me.W.Padding = New System.Windows.Forms.Padding(2)
-        Me.W.Size = New System.Drawing.Size(38, 30)
+        Me.W.Size = New System.Drawing.Size(55, 43)
         Me.W.TabIndex = 73
         Me.W.Text = "W"
         Me.W.Visible = False
@@ -318,12 +328,12 @@ Partial Class GameMain
         'X
         '
         Me.X.AutoSize = True
-        Me.X.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.X.Location = New System.Drawing.Point(394, 51)
+        Me.X.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.X.Location = New System.Drawing.Point(200, 296)
         Me.X.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.X.Name = "X"
         Me.X.Padding = New System.Windows.Forms.Padding(2)
-        Me.X.Size = New System.Drawing.Size(32, 30)
+        Me.X.Size = New System.Drawing.Size(45, 43)
         Me.X.TabIndex = 72
         Me.X.Text = "X"
         Me.X.Visible = False
@@ -331,12 +341,13 @@ Partial Class GameMain
         'U
         '
         Me.U.AutoSize = True
-        Me.U.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.U.Location = New System.Drawing.Point(298, 51)
+        Me.U.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.U.ForeColor = System.Drawing.Color.Maroon
+        Me.U.Location = New System.Drawing.Point(260, 21)
         Me.U.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.U.Name = "U"
         Me.U.Padding = New System.Windows.Forms.Padding(2)
-        Me.U.Size = New System.Drawing.Size(33, 30)
+        Me.U.Size = New System.Drawing.Size(47, 43)
         Me.U.TabIndex = 71
         Me.U.Text = "U"
         Me.U.Visible = False
@@ -344,12 +355,12 @@ Partial Class GameMain
         'R
         '
         Me.R.AutoSize = True
-        Me.R.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.R.Location = New System.Drawing.Point(194, 51)
+        Me.R.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.R.Location = New System.Drawing.Point(139, 296)
         Me.R.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.R.Name = "R"
         Me.R.Padding = New System.Windows.Forms.Padding(2)
-        Me.R.Size = New System.Drawing.Size(33, 30)
+        Me.R.Size = New System.Drawing.Size(47, 43)
         Me.R.TabIndex = 70
         Me.R.Text = "R"
         Me.R.Visible = False
@@ -357,12 +368,12 @@ Partial Class GameMain
         'S
         '
         Me.S.AutoSize = True
-        Me.S.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.S.Location = New System.Drawing.Point(229, 51)
+        Me.S.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.S.Location = New System.Drawing.Point(145, 367)
         Me.S.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.S.Name = "S"
         Me.S.Padding = New System.Windows.Forms.Padding(2)
-        Me.S.Size = New System.Drawing.Size(32, 30)
+        Me.S.Size = New System.Drawing.Size(45, 43)
         Me.S.TabIndex = 69
         Me.S.Text = "S"
         Me.S.Visible = False
@@ -370,12 +381,12 @@ Partial Class GameMain
         'T
         '
         Me.T.AutoSize = True
-        Me.T.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.T.Location = New System.Drawing.Point(265, 51)
+        Me.T.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.T.Location = New System.Drawing.Point(200, 98)
         Me.T.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.T.Name = "T"
         Me.T.Padding = New System.Windows.Forms.Padding(2)
-        Me.T.Size = New System.Drawing.Size(29, 30)
+        Me.T.Size = New System.Drawing.Size(43, 43)
         Me.T.TabIndex = 68
         Me.T.Text = "T"
         Me.T.Visible = False
@@ -383,12 +394,12 @@ Partial Class GameMain
         'Q
         '
         Me.Q.AutoSize = True
-        Me.Q.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Q.Location = New System.Drawing.Point(157, 51)
+        Me.Q.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Q.Location = New System.Drawing.Point(141, 224)
         Me.Q.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Q.Name = "Q"
         Me.Q.Padding = New System.Windows.Forms.Padding(2)
-        Me.Q.Size = New System.Drawing.Size(34, 30)
+        Me.Q.Size = New System.Drawing.Size(49, 43)
         Me.Q.TabIndex = 67
         Me.Q.Text = "Q"
         Me.Q.Visible = False
@@ -396,12 +407,12 @@ Partial Class GameMain
         'N
         '
         Me.N.AutoSize = True
-        Me.N.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.N.Location = New System.Drawing.Point(46, 51)
+        Me.N.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.N.Location = New System.Drawing.Point(139, 98)
         Me.N.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.N.Name = "N"
         Me.N.Padding = New System.Windows.Forms.Padding(2)
-        Me.N.Size = New System.Drawing.Size(33, 30)
+        Me.N.Size = New System.Drawing.Size(47, 43)
         Me.N.TabIndex = 66
         Me.N.Text = "N"
         Me.N.Visible = False
@@ -409,12 +420,13 @@ Partial Class GameMain
         'O
         '
         Me.O.AutoSize = True
-        Me.O.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.O.Location = New System.Drawing.Point(83, 51)
+        Me.O.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.O.ForeColor = System.Drawing.Color.Maroon
+        Me.O.Location = New System.Drawing.Point(194, 21)
         Me.O.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.O.Name = "O"
         Me.O.Padding = New System.Windows.Forms.Padding(2)
-        Me.O.Size = New System.Drawing.Size(34, 30)
+        Me.O.Size = New System.Drawing.Size(49, 43)
         Me.O.TabIndex = 65
         Me.O.Text = "O"
         Me.O.Visible = False
@@ -422,12 +434,12 @@ Partial Class GameMain
         'P
         '
         Me.P.AutoSize = True
-        Me.P.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.P.Location = New System.Drawing.Point(121, 51)
+        Me.P.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.P.Location = New System.Drawing.Point(141, 160)
         Me.P.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.P.Name = "P"
         Me.P.Padding = New System.Windows.Forms.Padding(2)
-        Me.P.Size = New System.Drawing.Size(32, 30)
+        Me.P.Size = New System.Drawing.Size(45, 43)
         Me.P.TabIndex = 64
         Me.P.Text = "P"
         Me.P.Visible = False
@@ -435,12 +447,12 @@ Partial Class GameMain
         'Z
         '
         Me.Z.AutoSize = True
-        Me.Z.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Z.Location = New System.Drawing.Point(463, 51)
+        Me.Z.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Z.Location = New System.Drawing.Point(200, 367)
         Me.Z.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Z.Name = "Z"
         Me.Z.Padding = New System.Windows.Forms.Padding(2)
-        Me.Z.Size = New System.Drawing.Size(30, 30)
+        Me.Z.Size = New System.Drawing.Size(43, 43)
         Me.Z.TabIndex = 63
         Me.Z.Text = "Z"
         Me.Z.Visible = False
@@ -448,12 +460,12 @@ Partial Class GameMain
         'J
         '
         Me.J.AutoSize = True
-        Me.J.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.J.Location = New System.Drawing.Point(362, 21)
+        Me.J.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.J.Location = New System.Drawing.Point(78, 160)
         Me.J.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.J.Name = "J"
         Me.J.Padding = New System.Windows.Forms.Padding(2)
-        Me.J.Size = New System.Drawing.Size(28, 30)
+        Me.J.Size = New System.Drawing.Size(40, 43)
         Me.J.TabIndex = 62
         Me.J.Text = "J"
         Me.J.Visible = False
@@ -461,12 +473,12 @@ Partial Class GameMain
         'K
         '
         Me.K.AutoSize = True
-        Me.K.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.K.Location = New System.Drawing.Point(394, 21)
+        Me.K.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.K.Location = New System.Drawing.Point(78, 224)
         Me.K.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.K.Name = "K"
         Me.K.Padding = New System.Windows.Forms.Padding(2)
-        Me.K.Size = New System.Drawing.Size(32, 30)
+        Me.K.Size = New System.Drawing.Size(45, 43)
         Me.K.TabIndex = 61
         Me.K.Text = "K"
         Me.K.Visible = False
@@ -474,12 +486,12 @@ Partial Class GameMain
         'L
         '
         Me.L.AutoSize = True
-        Me.L.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L.Location = New System.Drawing.Point(430, 21)
+        Me.L.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L.Location = New System.Drawing.Point(73, 296)
         Me.L.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.L.Name = "L"
         Me.L.Padding = New System.Windows.Forms.Padding(2)
-        Me.L.Size = New System.Drawing.Size(29, 30)
+        Me.L.Size = New System.Drawing.Size(41, 43)
         Me.L.TabIndex = 60
         Me.L.Text = "L"
         Me.L.Visible = False
@@ -487,12 +499,13 @@ Partial Class GameMain
         'I
         '
         Me.I.AutoSize = True
-        Me.I.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.I.Location = New System.Drawing.Point(335, 21)
+        Me.I.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.I.ForeColor = System.Drawing.Color.Maroon
+        Me.I.Location = New System.Drawing.Point(139, 21)
         Me.I.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.I.Name = "I"
         Me.I.Padding = New System.Windows.Forms.Padding(2)
-        Me.I.Size = New System.Drawing.Size(23, 30)
+        Me.I.Size = New System.Drawing.Size(31, 43)
         Me.I.TabIndex = 59
         Me.I.Text = "I"
         Me.I.Visible = False
@@ -500,12 +513,12 @@ Partial Class GameMain
         'F
         '
         Me.F.AutoSize = True
-        Me.F.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.F.Location = New System.Drawing.Point(231, 21)
+        Me.F.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.F.Location = New System.Drawing.Point(7, 296)
         Me.F.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.F.Name = "F"
         Me.F.Padding = New System.Windows.Forms.Padding(2)
-        Me.F.Size = New System.Drawing.Size(30, 30)
+        Me.F.Size = New System.Drawing.Size(43, 43)
         Me.F.TabIndex = 58
         Me.F.Text = "F"
         Me.F.Visible = False
@@ -513,12 +526,12 @@ Partial Class GameMain
         'G
         '
         Me.G.AutoSize = True
-        Me.G.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.G.Location = New System.Drawing.Point(260, 21)
+        Me.G.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.G.Location = New System.Drawing.Point(7, 367)
         Me.G.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.G.Name = "G"
         Me.G.Padding = New System.Windows.Forms.Padding(2)
-        Me.G.Size = New System.Drawing.Size(34, 30)
+        Me.G.Size = New System.Drawing.Size(49, 43)
         Me.G.TabIndex = 57
         Me.G.Text = "G"
         Me.G.Visible = False
@@ -526,12 +539,12 @@ Partial Class GameMain
         'H
         '
         Me.H.AutoSize = True
-        Me.H.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.H.Location = New System.Drawing.Point(298, 21)
+        Me.H.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.H.Location = New System.Drawing.Point(71, 98)
         Me.H.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.H.Name = "H"
         Me.H.Padding = New System.Windows.Forms.Padding(2)
-        Me.H.Size = New System.Drawing.Size(33, 30)
+        Me.H.Size = New System.Drawing.Size(47, 43)
         Me.H.TabIndex = 56
         Me.H.Text = "H"
         Me.H.Visible = False
@@ -539,12 +552,13 @@ Partial Class GameMain
         'EE
         '
         Me.EE.AutoSize = True
-        Me.EE.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EE.Location = New System.Drawing.Point(195, 21)
+        Me.EE.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EE.ForeColor = System.Drawing.Color.Maroon
+        Me.EE.Location = New System.Drawing.Point(73, 21)
         Me.EE.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.EE.Name = "EE"
         Me.EE.Padding = New System.Windows.Forms.Padding(2)
-        Me.EE.Size = New System.Drawing.Size(32, 30)
+        Me.EE.Size = New System.Drawing.Size(45, 43)
         Me.EE.TabIndex = 55
         Me.EE.Text = "E"
         Me.EE.Visible = False
@@ -552,12 +566,12 @@ Partial Class GameMain
         'B
         '
         Me.B.AutoSize = True
-        Me.B.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.B.Location = New System.Drawing.Point(84, 21)
+        Me.B.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.B.Location = New System.Drawing.Point(5, 98)
         Me.B.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.B.Name = "B"
         Me.B.Padding = New System.Windows.Forms.Padding(2)
-        Me.B.Size = New System.Drawing.Size(32, 30)
+        Me.B.Size = New System.Drawing.Size(45, 43)
         Me.B.TabIndex = 54
         Me.B.Text = "B"
         Me.B.Visible = False
@@ -565,12 +579,12 @@ Partial Class GameMain
         'C
         '
         Me.C.AutoSize = True
-        Me.C.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.C.Location = New System.Drawing.Point(120, 21)
+        Me.C.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.C.Location = New System.Drawing.Point(5, 160)
         Me.C.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.C.Name = "C"
         Me.C.Padding = New System.Windows.Forms.Padding(2)
-        Me.C.Size = New System.Drawing.Size(33, 30)
+        Me.C.Size = New System.Drawing.Size(47, 43)
         Me.C.TabIndex = 53
         Me.C.Text = "C"
         Me.C.Visible = False
@@ -578,12 +592,12 @@ Partial Class GameMain
         'D
         '
         Me.D.AutoSize = True
-        Me.D.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.D.Location = New System.Drawing.Point(157, 21)
+        Me.D.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.D.Location = New System.Drawing.Point(5, 224)
         Me.D.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.D.Name = "D"
         Me.D.Padding = New System.Windows.Forms.Padding(2)
-        Me.D.Size = New System.Drawing.Size(33, 30)
+        Me.D.Size = New System.Drawing.Size(47, 43)
         Me.D.TabIndex = 52
         Me.D.Text = "D"
         Me.D.Visible = False
@@ -591,12 +605,13 @@ Partial Class GameMain
         'A
         '
         Me.A.AutoSize = True
-        Me.A.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.74545!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.A.Location = New System.Drawing.Point(48, 21)
+        Me.A.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25455!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.A.ForeColor = System.Drawing.Color.Maroon
+        Me.A.Location = New System.Drawing.Point(5, 21)
         Me.A.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.A.Name = "A"
         Me.A.Padding = New System.Windows.Forms.Padding(2)
-        Me.A.Size = New System.Drawing.Size(32, 30)
+        Me.A.Size = New System.Drawing.Size(45, 43)
         Me.A.TabIndex = 51
         Me.A.Text = "A"
         Me.A.Visible = False
@@ -631,19 +646,72 @@ Partial Class GameMain
         Me.GroupBox2.Controls.Add(Me.D)
         Me.GroupBox2.Controls.Add(Me.A)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.163636!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(50, 126)
+        Me.GroupBox2.Location = New System.Drawing.Point(704, 248)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(542, 100)
+        Me.GroupBox2.Size = New System.Drawing.Size(432, 431)
         Me.GroupBox2.TabIndex = 77
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Letters Left"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(18, 18)
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Enabled = False
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Easy", "Medium", "Hard"})
+        Me.ComboBox1.Location = New System.Drawing.Point(40, 686)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 26)
+        Me.ComboBox1.TabIndex = 79
+        Me.ComboBox1.Text = "Difficulty"
+        '
+        'PicBoxPig
+        '
+        Me.PicBoxPig.Location = New System.Drawing.Point(1147, 497)
+        Me.PicBoxPig.Name = "PicBoxPig"
+        Me.PicBoxPig.Size = New System.Drawing.Size(218, 215)
+        Me.PicBoxPig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PicBoxPig.TabIndex = 80
+        Me.PicBoxPig.TabStop = False
+        '
+        'LblWinner
+        '
+        Me.LblWinner.AutoSize = True
+        Me.LblWinner.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblWinner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LblWinner.Location = New System.Drawing.Point(1142, 465)
+        Me.LblWinner.Name = "LblWinner"
+        Me.LblWinner.Size = New System.Drawing.Size(116, 29)
+        Me.LblWinner.TabIndex = 77
+        Me.LblWinner.Text = "Winner!!!"
+        '
+        'LblGameOver
+        '
+        Me.LblGameOver.AutoSize = True
+        Me.LblGameOver.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblGameOver.ForeColor = System.Drawing.Color.Red
+        Me.LblGameOver.Location = New System.Drawing.Point(1147, 465)
+        Me.LblGameOver.Name = "LblGameOver"
+        Me.LblGameOver.Size = New System.Drawing.Size(145, 29)
+        Me.LblGameOver.TabIndex = 81
+        Me.LblGameOver.Text = "Game Over"
         '
         'GameMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(787, 592)
+        Me.ClientSize = New System.Drawing.Size(1902, 1036)
+        Me.Controls.Add(Me.LblGameOver)
+        Me.Controls.Add(Me.LblWinner)
+        Me.Controls.Add(Me.PicBoxPig)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.TxtHint)
@@ -660,7 +728,9 @@ Partial Class GameMain
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "GameMain"
         Me.Padding = New System.Windows.Forms.Padding(2)
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "HANGMAN GAME"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PIC6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PIC5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PIC4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -671,6 +741,7 @@ Partial Class GameMain
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PicBoxPig, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -718,5 +789,9 @@ Partial Class GameMain
     Friend WithEvents D As System.Windows.Forms.Label
     Friend WithEvents A As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents PicBoxPig As PictureBox
+    Friend WithEvents LblWinner As Label
+    Friend WithEvents LblGameOver As Label
 End Class
