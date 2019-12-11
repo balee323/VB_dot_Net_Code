@@ -17,8 +17,6 @@
     Dim BlankCharArray(200) As Char  'keep as global. gets reset each round, I give up will just make 200 spots..
 
     Dim ContinueGame As Boolean = False 'accepts keystokes, false=no, true=yes
-    Dim HighScore() As String
-    Dim HighestScore As String = ""
 
     Dim PigImages As List(Of Image)
     Dim SadPigImages As List(Of Image)
@@ -52,22 +50,18 @@
     Dim PressedZ As Boolean = False
 
 
-
-
     'for Each Round
     Private Sub BtnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnStart.Click
+
         LblWinner.Hide()
         LblGameOver.Hide()
-
         PicBoxPig.Image = Nothing
 
-        TxtHighScore.Text = (HighestScore)
-
+        TxtScore.Text = (Score.ToString())
 
         FoundCount = 0 'redudant clear
 
         CheckFileLoad() 'loads one word into LoadedWord Array
-
         PlayRound() 'plays each round using a string element from LoadedWords()
 
         GameCounter = GameCounter + 1 'tracks the game iterations
@@ -84,7 +78,6 @@
 
     Sub CheckFileLoad()
 
-
         WrongGuess = 0 ' reset
         BlankWord = "" 'reset
         ClearCharArray() 'reset
@@ -92,7 +85,6 @@
         TxtWordBox.Text = ("")
         TxtHint.Text = ("")
         FoundCount = 0
-
 
         'only occurs if no loaded file is selected before the player clicks start
         If FileName = "" Then
@@ -105,12 +97,10 @@
         End If
 
 
-
         'this all deals with a file not being loaded and the default word being used
         If FileName = "" And GameCounter <= WordArrayElements Then
             GameCounter = 0 'restarts from the begining of word list if there are no more words in the list
         End If
-
 
         If FileName <> "" Then
             CurrentWord = LoadedWords(GameCounter) 'sets the current word (must do first)
@@ -121,21 +111,12 @@
 
         End If
 
-        '  MessageBox.Show("Current Word Length: " & CStr(CurrentWordLength))
-
-
-
-
-
     End Sub
-
 
 
     Sub PlayRound()
 
-
         ContinueGame = True
-
         TxtHint.Text = LoadedHints(GameCounter)
 
         'RESET VISIBLITY OF LABELS EACH ROUND
@@ -201,11 +182,8 @@
         PressedY = False
         PressedZ = False
 
-
         UnderScores()  'CONVERTS THE WORD TO UNDERSCORES, seems ok., dont think I need?
-
         ToSingleBlanks()  'setting char array to blanks  (also appears to work!)  
-
         ToSingleLetters()  'Returns the current word as an character array
 
     End Sub
@@ -214,11 +192,8 @@
 
         Dim i As Integer = 0
 
-
         Do While i < CurrentWordLength
-
             BlankWord = BlankWord + "_"
-
             i = i + 1
         Loop
 
@@ -226,7 +201,6 @@
 
 
     'converts all the blanks to characters, returns the underscore String as characters with a space between each character.
-
     Sub ToSingleBlanks()     'do not need to send byval, blankword is a class variable
 
         Dim Space As Char = " "c  'allows declaration  of char variable.  EX.  ="A"c
@@ -237,15 +211,8 @@
 
         Dim ArrayLength As Integer = (((CurrentWord.Length()) * 2) - 1)   'shopuld be 21 spaces for the test word
 
-
-        '    MessageBox.Show(CStr(ArrayLength)) 'says 9
-        '    MessageBox.Show(CStr(BlankCharArray.Length())) 'just made BlankCharArray 200 elements...
-
-
         Do
-
             BlankCharArray(i) = BlankWord.Chars(k)
-
             Do While j < (ArrayLength) 'appears to work now..
 
                 BlankCharArray(j) = Space
@@ -256,12 +223,9 @@
             k = k + 1
         Loop While i <= (ArrayLength)
 
-
         TxtWordBox.Text = BlankCharArray  'displays the blanks
 
-
     End Sub
-
 
 
     'converts A String to characters.
@@ -272,19 +236,14 @@
         Dim j As Integer = 1   'for iterating the spaces
         Dim k As Integer = 0  'for iterating the word
 
-
-        '    MessageBox.Show(CStr(ArrayLength)) '21 is right!
-
         Do
-
             WordAsCharacters(i) = CurrentWord.Chars(k)
-
-            Do While j < ((CurrentWordLength * 2) - 1) 'appears to work now..
+            Do While j < ((CurrentWordLength * 2) - 1)
 
                 WordAsCharacters(j) = Space
                 j = j + 2
-            Loop
 
+            Loop
             i = i + 2
             k = k + 1
         Loop While i <= ((CurrentWordLength * 2) - 1)
@@ -292,20 +251,12 @@
     End Sub
 
 
-
     Sub Control_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
 
-
-        Dim Letter As Char
-
-
-
-
         If ContinueGame = True Then
+            Dim Letter As Char
 
             If e.KeyChar = ChrW(65) Or e.KeyChar = ChrW(97) Then
-
-
                 Do While PressedA = False
                     CheckLetter("A")
                     KillStickMan()
@@ -316,7 +267,6 @@
                 Loop
 
             ElseIf e.KeyChar = ChrW(66) Or e.KeyChar = ChrW(98) Then
-
                 Do While PressedB = False
                     CheckLetter("B")
                     KillStickMan()
@@ -328,7 +278,6 @@
 
 
             ElseIf e.KeyChar = ChrW(67) Or e.KeyChar = ChrW(99) Then
-
                 Do While PressedC = False
                     CheckLetter("C")
                     KillStickMan()
@@ -340,7 +289,6 @@
 
 
             ElseIf e.KeyChar = ChrW(68) Or e.KeyChar = ChrW(100) Then
-
                 Do While PressedD = False
                     CheckLetter("D")
                     KillStickMan()
@@ -350,9 +298,7 @@
                     D.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(69) Or e.KeyChar = ChrW(101) Then
-
                 Do While PressedE = False
                     CheckLetter("E")
                     KillStickMan()
@@ -362,9 +308,7 @@
                     EE.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(70) Or e.KeyChar = ChrW(102) Then
-
                 Do While PressedF = False
                     CheckLetter("F")
                     KillStickMan()
@@ -374,9 +318,7 @@
                     F.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(71) Or e.KeyChar = ChrW(103) Then
-
                 Do While PressedG = False
                     CheckLetter("G")
                     KillStickMan()
@@ -387,7 +329,6 @@
                 Loop
 
             ElseIf e.KeyChar = ChrW(72) Or e.KeyChar = ChrW(104) Then
-
                 Do While PressedH = False
                     CheckLetter("H")
                     KillStickMan()
@@ -397,10 +338,7 @@
                     H.Visible = False
                 Loop
 
-
-
             ElseIf e.KeyChar = ChrW(73) Or e.KeyChar = ChrW(105) Then
-
                 Do While PressedI = False
                     CheckLetter("I")
                     KillStickMan()
@@ -411,7 +349,6 @@
                 Loop
 
             ElseIf e.KeyChar = ChrW(74) Or e.KeyChar = ChrW(106) Then
-
                 Do While PressedJ = False
                     CheckLetter("J")
                     KillStickMan()
@@ -422,7 +359,6 @@
                 Loop
 
             ElseIf e.KeyChar = ChrW(75) Or e.KeyChar = ChrW(107) Then
-
                 Do While PressedK = False
                     CheckLetter("K")
                     KillStickMan()
@@ -432,9 +368,7 @@
                     K.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(76) Or e.KeyChar = ChrW(108) Then
-
                 Do While PressedL = False
                     CheckLetter("L")
                     KillStickMan()
@@ -464,7 +398,6 @@
                     N.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(79) Or e.KeyChar = ChrW(111) Then
                 Do While PressedO = False
                     CheckLetter("O")
@@ -485,7 +418,6 @@
                     P.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(81) Or e.KeyChar = ChrW(113) Then
                 Do While PressedQ = False
                     CheckLetter("Q")
@@ -495,7 +427,6 @@
                     PressedQ = True
                     Q.Visible = False
                 Loop
-
 
             ElseIf e.KeyChar = ChrW(82) Or e.KeyChar = ChrW(114) Then
                 Do While PressedR = False
@@ -507,7 +438,6 @@
                     R.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(83) Or e.KeyChar = ChrW(115) Then
                 Do While PressedS = False
                     CheckLetter("S")
@@ -517,7 +447,6 @@
                     PressedS = True
                     S.Visible = False
                 Loop
-
 
             ElseIf e.KeyChar = ChrW(84) Or e.KeyChar = ChrW(116) Then
                 Do While PressedT = False
@@ -529,7 +458,6 @@
                     T.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(85) Or e.KeyChar = ChrW(117) Then
                 Do While PressedU = False
                     CheckLetter("U")
@@ -539,7 +467,6 @@
                     PressedU = True
                     U.Visible = False
                 Loop
-
 
             ElseIf e.KeyChar = ChrW(86) Or e.KeyChar = ChrW(118) Then
                 Do While PressedV = False
@@ -561,7 +488,6 @@
                     W.Visible = False
                 Loop
 
-
             ElseIf e.KeyChar = ChrW(88) Or e.KeyChar = ChrW(120) Then
                 Do While PressedX = False
                     CheckLetter("X")
@@ -571,7 +497,6 @@
                     PressedX = True
                     X.Visible = False
                 Loop
-
 
             ElseIf e.KeyChar = ChrW(89) Or e.KeyChar = ChrW(121) Then
                 Do While PressedY = False
@@ -592,53 +517,34 @@
                     PressedZ = True
                     Z.Visible = False
                 Loop
+
             End If
 
-        End If 'StartGame = true/false
+        End If
 
     End Sub
-
-
-
 
 
     Sub CheckLetter(ByVal letter As String)
 
         Dim Found As Boolean = False
-
         Dim LetterCheck As String = ""
-        ' Dim CharWord(StrTestWord.Length() - 1) As Char  'Character array
         Dim i As Integer = 0
-
-
-
-
 
         Do While i < CurrentWord.Length()
 
             If CurrentWord.Chars(i) = letter Then
-                'LetterCheck = StrTestWord.Chars(i)
-                '  MessageBox.Show("found one!")
                 Found = True
                 FoundCount = FoundCount + 1
-                'BlankWord.Chars(i) = StrTestWord.Chars(i)
-
-                'ConvertedWord.Substring = letter
             End If
             i = i + 1
         Loop
 
-        ' MessageBox.Show(LetterCheck)  'works
-
         If Found = False Then
             WrongGuess = WrongGuess + 1
         End If
-        ' MessageBox.Show(CStr(Hanged)) 'works too
-
-
 
     End Sub
-
 
 
     Sub ShowLetter(ByVal Letter As Char)
@@ -654,7 +560,6 @@
             i = i + 1
 
         Loop
-
 
         TxtWordBox.Text = (BlankCharArray)
 
@@ -680,28 +585,21 @@
 
         Dim difficultyFactor As Integer = CInt((GetDifficultyTries() / 5))
 
-
-
-
         If WrongGuess >= difficultyFactor * 1 Then
             PIC1.Visible = False
         End If
-
 
         If WrongGuess >= difficultyFactor * 2 Then
             PIC2.Visible = False
         End If
 
-
         If WrongGuess >= difficultyFactor * 3 Then
             PIC3.Visible = False
         End If
 
-
         If WrongGuess >= difficultyFactor * 4 Then
             PIC4.Visible = False
         End If
-
 
         If WrongGuess >= difficultyFactor * 5 Then
             PIC5.Visible = False
@@ -714,9 +612,7 @@
             ContinueGame = False 'ends keyboard input
         End If
 
-
     End Sub
-
 
 
     Function GetDifficultyTries() As Integer
@@ -731,6 +627,8 @@
             Return 5
         End If
 
+        Return 15
+
     End Function
 
 
@@ -741,7 +639,6 @@
         'clears arrays
         Array.Clear(BlankCharArray, BlankCharArray.GetLowerBound(0), BlankCharArray.Length())
         Array.Clear(WordAsCharacters, WordAsCharacters.GetLowerBound(0), WordAsCharacters.Length())
-
 
     End Sub
 
@@ -757,8 +654,6 @@
         openFD.ShowDialog()
         FileName = openFD.FileName
 
-
-
         If FileName = "" Then
             MessageBox.Show("No file selected, default Test file loaded.")
         Else
@@ -773,20 +668,13 @@
 
     Sub DefaultLoad()
 
-
         MessageBox.Show("No file selected, default Test file loaded.")
         CurrentWord = "VISUALBASIC"
         WordArrayElements = 1 'since only 1 word is loaded.
 
-
     End Sub
 
-
-
-
     Sub ParseWords()
-
-        'LoadedWords = IO.File.ReadAllLines(FileName) 'loaded into array, each element used
 
         LoadedString = IO.File.ReadAllLines(FileName) 'loaded into array, each element used
 
@@ -804,7 +692,6 @@
     End Sub
 
 
-
     Private Sub BtnQuit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnQuit.Click
         End
     End Sub
@@ -812,9 +699,7 @@
     Private Sub BtnLoadFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnLoadFile.Click
 
         FileName = "" 'resets so a new file can be loaded on each button click
-
         LoadFile()
-
 
     End Sub
 
@@ -828,16 +713,13 @@
         PigImages.Add(My.Resources.pig2)
         PigImages.Add(My.Resources.pig3)
 
-
         SadPigImages = New List(Of Image)
         SadPigImages.Add(My.Resources.Pig1Sad)
         SadPigImages.Add(My.Resources.pig2Sad)
         SadPigImages.Add(My.Resources.pig3Sad)
 
-
         Me.Focus()
         Me.KeyPreview = True  'important
-
 
     End Sub
 
