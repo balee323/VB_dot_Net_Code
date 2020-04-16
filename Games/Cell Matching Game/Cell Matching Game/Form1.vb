@@ -2,185 +2,84 @@
 
 Public Class Form1
 
-    Dim FirstCard As Integer = 0 'starting values
-    Dim SecondCard As Integer = 0
+
+    Dim _matchingGameEngine As MatchingGameEngine = Nothing
 
 
-
-
-
-
-
-    Private Sub Top1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Top1.Click
-
-        ' Dim CheckMatch As Boolean
-        Dim CardPicked As Integer = 1
-
-        Top1.Visible = False
-
-        Bottom1.Visible = True
-
-
-
-        If FirstCard = 0 Then 'chooses first card to be marker
-            FirstCard = CardPicked
-        Else
-            SecondCard = CardPicked
-        End If
-
-
-
-        If FirstCard <> 0 And SecondCard <> 0 Then
-            If FirstCard = SecondCard Then
-                MessageBox.Show("Match")
-                'Bottom1.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-
-            Else
-                MessageBox.Show("Not a Match")
-                Top1.Visible = True
-                Bottom1.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            End If
-        End If
-
-
-
-
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        _matchingGameEngine = New MatchingGameEngine(GameSize.Small, Me)
+        _matchingGameEngine.StartNewGame()
 
     End Sub
 
+    Private Function GetCard(pictureBox As PictureBox) As Image
+        pictureBox.Image = _matchingGameEngine.CardClicked(pictureBox)
+    End Function
 
 
-
-    Private Sub Top4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Top4.Click
-
-        Dim CardPicked As Integer = 1 'matching
-
-        Top4.Visible = False
-
-        Bottom4.Visible = True
-
-        If FirstCard = 0 Then 'chooses first card to be marker
-            FirstCard = CardPicked
-        Else
-            SecondCard = CardPicked
-        End If
-
-
-
-        If FirstCard <> 0 And SecondCard <> 0 Then
-            If FirstCard = SecondCard Then
-                MessageBox.Show("Match")
-                'Bottom4.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            Else
-                MessageBox.Show("Not a Match")
-                Top4.Visible = True
-                Bottom4.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            End If
-        End If
-
-
-
-
-
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
     End Sub
 
-    Private Sub Top2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Top2.Click
-        Dim CardPicked As Integer = 3
-
-        Top2.Visible = False
-
-        Bottom2.Visible = True
-
-
-      If FirstCard = 0 Then 'chooses first card to be marker
-            FirstCard = CardPicked
-        Else
-            SecondCard = CardPicked
-        End If
-
-
-        If FirstCard <> 0 And SecondCard <> 0 Then
-            If FirstCard = SecondCard Then
-                MessageBox.Show("Match")
-                'Bottom2.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            Else
-                MessageBox.Show("Not a Match")
-                Top2.Visible = True
-                Bottom2.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            End If
-        End If
-
-
-
-
-
-
-
-
+    Private Sub PictureBox11_Click(sender As Object, e As EventArgs) Handles PictureBox11.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
     End Sub
 
-    Private Sub Top3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Top3.Click
-
-        Dim CardPicked As Integer = 3
-        Dim TopCard As String = "Top3"
-
-        Top3.Visible = False
-
-        Bottom3.Visible = True
-
-
-      If FirstCard = 0 Then 'chooses first card to be marker
-            FirstCard = CardPicked
-        Else
-            SecondCard = CardPicked
-        End If
-
-
-        If FirstCard <> 0 And SecondCard <> 0 Then
-            If FirstCard = SecondCard Then
-                MessageBox.Show("Match")
-                'Bottom3.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-            Else
-                MessageBox.Show("Not a Match")
-                Top3.Visible = True
-                Bottom3.Visible = False
-                FirstCard = 0
-                SecondCard = 0
-
-            End If
-        End If
-
-
-
-
+    Private Sub PictureBox10_Click(sender As Object, e As EventArgs) Handles PictureBox10.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
     End Sub
 
-    Sub Recover(ByVal TopCardnum As String)
-
-
-
-
-        ' TopCardnum.Visible = True
-
-
-
+    Private Sub PictureBox9_Click(sender As Object, e As EventArgs) Handles PictureBox9.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
     End Sub
 
+    Private Sub PictureBox8_Click(sender As Object, e As EventArgs) Handles PictureBox8.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
 
+    Private Sub PictureBox7_Click(sender As Object, e As EventArgs) Handles PictureBox7.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox6_Click(sender As Object, e As EventArgs) Handles PictureBox6.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub PictureBox12_Click(sender As Object, e As EventArgs) Handles PictureBox12.Click
+        GetCard(CType(sender, PictureBox))
+        _matchingGameEngine.CheckForMatch()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        _matchingGameEngine.StartNewGame()
+    End Sub
 
 
 End Class

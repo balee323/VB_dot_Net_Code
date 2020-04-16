@@ -44,7 +44,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\..\..\Desktop\SBS_Password_Changer_Alpha\Publish\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\</OutputPath>
     <DocumentationFile>ActiveDirectoryPassChange.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
@@ -84,13 +84,13 @@
     <ManifestKeyFile>ActiveDirectoryPassChange_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>SBS_Pass.ico</ApplicationIcon>

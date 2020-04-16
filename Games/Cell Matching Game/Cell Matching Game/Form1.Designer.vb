@@ -22,353 +22,260 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Top11 = New System.Windows.Forms.Button()
-        Me.Bottom11 = New System.Windows.Forms.PictureBox()
-        Me.Top10 = New System.Windows.Forms.Button()
-        Me.Bottom10 = New System.Windows.Forms.PictureBox()
-        Me.top12 = New System.Windows.Forms.Button()
-        Me.Bottom12 = New System.Windows.Forms.PictureBox()
-        Me.Top9 = New System.Windows.Forms.Button()
-        Me.Bottom9 = New System.Windows.Forms.PictureBox()
-        Me.Top7 = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Top6 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Top8 = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Top5 = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.Top3 = New System.Windows.Forms.Button()
-        Me.Bottom3 = New System.Windows.Forms.PictureBox()
-        Me.Top2 = New System.Windows.Forms.Button()
-        Me.Bottom2 = New System.Windows.Forms.PictureBox()
-        Me.Top4 = New System.Windows.Forms.Button()
-        Me.Bottom4 = New System.Windows.Forms.PictureBox()
-        Me.Top1 = New System.Windows.Forms.Button()
-        Me.Bottom1 = New System.Windows.Forms.PictureBox()
-        CType(Me.Bottom11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom12, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Bottom1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Top11
-        '
-        Me.Top11.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top11.Location = New System.Drawing.Point(489, 328)
-        Me.Top11.Name = "Top11"
-        Me.Top11.Size = New System.Drawing.Size(90, 130)
-        Me.Top11.TabIndex = 58
-        Me.Top11.Text = "Button1"
-        Me.Top11.UseVisualStyleBackColor = True
-        '
-        'Bottom11
-        '
-        Me.Bottom11.Image = Global.Cell_Matching_Game.My.Resources.Resources._3
-        Me.Bottom11.Location = New System.Drawing.Point(489, 328)
-        Me.Bottom11.Name = "Bottom11"
-        Me.Bottom11.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom11.TabIndex = 57
-        Me.Bottom11.TabStop = False
-        Me.Bottom11.Visible = False
-        '
-        'Top10
-        '
-        Me.Top10.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top10.Location = New System.Drawing.Point(302, 328)
-        Me.Top10.Name = "Top10"
-        Me.Top10.Size = New System.Drawing.Size(90, 130)
-        Me.Top10.TabIndex = 56
-        Me.Top10.Text = "Button1"
-        Me.Top10.UseVisualStyleBackColor = True
-        '
-        'Bottom10
-        '
-        Me.Bottom10.Image = Global.Cell_Matching_Game.My.Resources.Resources._1
-        Me.Bottom10.Location = New System.Drawing.Point(302, 328)
-        Me.Bottom10.Name = "Bottom10"
-        Me.Bottom10.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom10.TabIndex = 55
-        Me.Bottom10.TabStop = False
-        Me.Bottom10.Visible = False
-        '
-        'top12
-        '
-        Me.top12.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.top12.Location = New System.Drawing.Point(658, 328)
-        Me.top12.Name = "top12"
-        Me.top12.Size = New System.Drawing.Size(90, 130)
-        Me.top12.TabIndex = 54
-        Me.top12.Text = "Button1"
-        Me.top12.UseVisualStyleBackColor = True
-        '
-        'Bottom12
-        '
-        Me.Bottom12.Image = Global.Cell_Matching_Game.My.Resources.Resources._3
-        Me.Bottom12.Location = New System.Drawing.Point(658, 328)
-        Me.Bottom12.Name = "Bottom12"
-        Me.Bottom12.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom12.TabIndex = 53
-        Me.Bottom12.TabStop = False
-        Me.Bottom12.Visible = False
-        '
-        'Top9
-        '
-        Me.Top9.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top9.Location = New System.Drawing.Point(119, 328)
-        Me.Top9.Name = "Top9"
-        Me.Top9.Size = New System.Drawing.Size(90, 130)
-        Me.Top9.TabIndex = 52
-        Me.Top9.Text = "Button1"
-        Me.Top9.UseVisualStyleBackColor = True
-        '
-        'Bottom9
-        '
-        Me.Bottom9.Image = Global.Cell_Matching_Game.My.Resources.Resources._2
-        Me.Bottom9.Location = New System.Drawing.Point(119, 328)
-        Me.Bottom9.Name = "Bottom9"
-        Me.Bottom9.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom9.TabIndex = 51
-        Me.Bottom9.TabStop = False
-        Me.Bottom9.Visible = False
-        '
-        'Top7
-        '
-        Me.Top7.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top7.Location = New System.Drawing.Point(489, 178)
-        Me.Top7.Name = "Top7"
-        Me.Top7.Size = New System.Drawing.Size(90, 130)
-        Me.Top7.TabIndex = 50
-        Me.Top7.Text = "Button1"
-        Me.Top7.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Cell_Matching_Game.My.Resources.Resources._2
-        Me.PictureBox1.Location = New System.Drawing.Point(489, 178)
+        Me.PictureBox1.ErrorImage = Nothing
+        Me.PictureBox1.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(28, 27)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(90, 130)
-        Me.PictureBox1.TabIndex = 49
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        Me.PictureBox1.Visible = False
-        '
-        'Top6
-        '
-        Me.Top6.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top6.Location = New System.Drawing.Point(302, 178)
-        Me.Top6.Name = "Top6"
-        Me.Top6.Size = New System.Drawing.Size(90, 130)
-        Me.Top6.TabIndex = 48
-        Me.Top6.Text = "Button1"
-        Me.Top6.UseVisualStyleBackColor = True
+        Me.PictureBox1.WaitOnLoad = True
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.Cell_Matching_Game.My.Resources.Resources._1
-        Me.PictureBox2.Location = New System.Drawing.Point(302, 178)
+        Me.PictureBox2.ErrorImage = Nothing
+        Me.PictureBox2.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox2.InitialImage = CType(resources.GetObject("PictureBox2.InitialImage"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(152, 27)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(12)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(90, 130)
-        Me.PictureBox2.TabIndex = 47
+        Me.PictureBox2.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
-        Me.PictureBox2.Visible = False
-        '
-        'Top8
-        '
-        Me.Top8.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top8.Location = New System.Drawing.Point(658, 178)
-        Me.Top8.Name = "Top8"
-        Me.Top8.Size = New System.Drawing.Size(90, 130)
-        Me.Top8.TabIndex = 46
-        Me.Top8.Text = "Button1"
-        Me.Top8.UseVisualStyleBackColor = True
+        Me.PictureBox2.WaitOnLoad = True
         '
         'PictureBox3
         '
-        Me.PictureBox3.Image = Global.Cell_Matching_Game.My.Resources.Resources._2
-        Me.PictureBox3.Location = New System.Drawing.Point(658, 178)
+        Me.PictureBox3.ErrorImage = Nothing
+        Me.PictureBox3.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox3.InitialImage = CType(resources.GetObject("PictureBox3.InitialImage"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(276, 27)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(12)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(90, 130)
-        Me.PictureBox3.TabIndex = 45
+        Me.PictureBox3.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 2
         Me.PictureBox3.TabStop = False
-        Me.PictureBox3.Visible = False
-        '
-        'Top5
-        '
-        Me.Top5.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top5.Location = New System.Drawing.Point(119, 178)
-        Me.Top5.Name = "Top5"
-        Me.Top5.Size = New System.Drawing.Size(90, 130)
-        Me.Top5.TabIndex = 44
-        Me.Top5.Text = "Button1"
-        Me.Top5.UseVisualStyleBackColor = True
+        Me.PictureBox3.WaitOnLoad = True
         '
         'PictureBox4
         '
-        Me.PictureBox4.Image = Global.Cell_Matching_Game.My.Resources.Resources._1
-        Me.PictureBox4.Location = New System.Drawing.Point(119, 178)
+        Me.PictureBox4.ErrorImage = Nothing
+        Me.PictureBox4.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox4.InitialImage = CType(resources.GetObject("PictureBox4.InitialImage"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(400, 27)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(12)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(90, 130)
-        Me.PictureBox4.TabIndex = 43
+        Me.PictureBox4.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 3
         Me.PictureBox4.TabStop = False
-        Me.PictureBox4.Visible = False
+        Me.PictureBox4.WaitOnLoad = True
         '
-        'Top3
+        'PictureBox5
         '
-        Me.Top3.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top3.Location = New System.Drawing.Point(489, 29)
-        Me.Top3.Name = "Top3"
-        Me.Top3.Size = New System.Drawing.Size(90, 130)
-        Me.Top3.TabIndex = 42
-        Me.Top3.Text = "Button1"
-        Me.Top3.UseVisualStyleBackColor = True
+        Me.PictureBox5.ErrorImage = Nothing
+        Me.PictureBox5.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox5.InitialImage = CType(resources.GetObject("PictureBox5.InitialImage"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(28, 151)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 4
+        Me.PictureBox5.TabStop = False
+        Me.PictureBox5.WaitOnLoad = True
         '
-        'Bottom3
+        'PictureBox6
         '
-        Me.Bottom3.Image = Global.Cell_Matching_Game.My.Resources.Resources._3
-        Me.Bottom3.Location = New System.Drawing.Point(489, 29)
-        Me.Bottom3.Name = "Bottom3"
-        Me.Bottom3.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom3.TabIndex = 41
-        Me.Bottom3.TabStop = False
-        Me.Bottom3.Visible = False
+        Me.PictureBox6.ErrorImage = Nothing
+        Me.PictureBox6.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox6.InitialImage = CType(resources.GetObject("PictureBox6.InitialImage"), System.Drawing.Image)
+        Me.PictureBox6.Location = New System.Drawing.Point(152, 151)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 5
+        Me.PictureBox6.TabStop = False
+        Me.PictureBox6.WaitOnLoad = True
         '
-        'Top2
+        'PictureBox7
         '
-        Me.Top2.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top2.Location = New System.Drawing.Point(302, 29)
-        Me.Top2.Name = "Top2"
-        Me.Top2.Size = New System.Drawing.Size(90, 130)
-        Me.Top2.TabIndex = 40
-        Me.Top2.Text = "Button1"
-        Me.Top2.UseVisualStyleBackColor = True
+        Me.PictureBox7.ErrorImage = Nothing
+        Me.PictureBox7.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox7.InitialImage = CType(resources.GetObject("PictureBox7.InitialImage"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(276, 151)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 6
+        Me.PictureBox7.TabStop = False
+        Me.PictureBox7.WaitOnLoad = True
         '
-        'Bottom2
+        'PictureBox8
         '
-        Me.Bottom2.Image = Global.Cell_Matching_Game.My.Resources.Resources._3
-        Me.Bottom2.Location = New System.Drawing.Point(302, 29)
-        Me.Bottom2.Name = "Bottom2"
-        Me.Bottom2.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom2.TabIndex = 39
-        Me.Bottom2.TabStop = False
-        Me.Bottom2.Visible = False
+        Me.PictureBox8.ErrorImage = Nothing
+        Me.PictureBox8.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox8.InitialImage = CType(resources.GetObject("PictureBox8.InitialImage"), System.Drawing.Image)
+        Me.PictureBox8.Location = New System.Drawing.Point(400, 151)
+        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 7
+        Me.PictureBox8.TabStop = False
+        Me.PictureBox8.WaitOnLoad = True
         '
-        'Top4
+        'PictureBox9
         '
-        Me.Top4.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top4.Location = New System.Drawing.Point(658, 29)
-        Me.Top4.Name = "Top4"
-        Me.Top4.Size = New System.Drawing.Size(90, 130)
-        Me.Top4.TabIndex = 38
-        Me.Top4.Text = "Button1"
-        Me.Top4.UseVisualStyleBackColor = True
+        Me.PictureBox9.ErrorImage = Nothing
+        Me.PictureBox9.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox9.InitialImage = CType(resources.GetObject("PictureBox9.InitialImage"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(28, 275)
+        Me.PictureBox9.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 8
+        Me.PictureBox9.TabStop = False
+        Me.PictureBox9.WaitOnLoad = True
         '
-        'Bottom4
+        'PictureBox10
         '
-        Me.Bottom4.Image = Global.Cell_Matching_Game.My.Resources.Resources._1
-        Me.Bottom4.Location = New System.Drawing.Point(658, 29)
-        Me.Bottom4.Name = "Bottom4"
-        Me.Bottom4.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom4.TabIndex = 37
-        Me.Bottom4.TabStop = False
-        Me.Bottom4.Visible = False
+        Me.PictureBox10.ErrorImage = Nothing
+        Me.PictureBox10.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox10.InitialImage = CType(resources.GetObject("PictureBox10.InitialImage"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(152, 275)
+        Me.PictureBox10.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 9
+        Me.PictureBox10.TabStop = False
+        Me.PictureBox10.WaitOnLoad = True
         '
-        'Top1
+        'PictureBox11
         '
-        Me.Top1.BackgroundImage = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback1
-        Me.Top1.Location = New System.Drawing.Point(119, 29)
-        Me.Top1.Name = "Top1"
-        Me.Top1.Size = New System.Drawing.Size(90, 130)
-        Me.Top1.TabIndex = 36
-        Me.Top1.Text = "Button1"
-        Me.Top1.UseVisualStyleBackColor = True
+        Me.PictureBox11.ErrorImage = Nothing
+        Me.PictureBox11.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox11.InitialImage = CType(resources.GetObject("PictureBox11.InitialImage"), System.Drawing.Image)
+        Me.PictureBox11.Location = New System.Drawing.Point(276, 275)
+        Me.PictureBox11.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox11.TabIndex = 10
+        Me.PictureBox11.TabStop = False
+        Me.PictureBox11.WaitOnLoad = True
         '
-        'Bottom1
+        'PictureBox12
         '
-        Me.Bottom1.Image = Global.Cell_Matching_Game.My.Resources.Resources._1
-        Me.Bottom1.Location = New System.Drawing.Point(119, 29)
-        Me.Bottom1.Name = "Bottom1"
-        Me.Bottom1.Size = New System.Drawing.Size(90, 130)
-        Me.Bottom1.TabIndex = 0
-        Me.Bottom1.TabStop = False
-        Me.Bottom1.Visible = False
+        Me.PictureBox12.ErrorImage = Nothing
+        Me.PictureBox12.Image = Global.Cell_Matching_Game.My.Resources.Resources.bluecardback
+        Me.PictureBox12.InitialImage = CType(resources.GetObject("PictureBox12.InitialImage"), System.Drawing.Image)
+        Me.PictureBox12.Location = New System.Drawing.Point(400, 275)
+        Me.PictureBox12.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox12.TabIndex = 11
+        Me.PictureBox12.TabStop = False
+        Me.PictureBox12.WaitOnLoad = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(596, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(185, 47)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "New Game"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1195, 655)
-        Me.Controls.Add(Me.Top11)
-        Me.Controls.Add(Me.Bottom11)
-        Me.Controls.Add(Me.Top10)
-        Me.Controls.Add(Me.Bottom10)
-        Me.Controls.Add(Me.top12)
-        Me.Controls.Add(Me.Bottom12)
-        Me.Controls.Add(Me.Top9)
-        Me.Controls.Add(Me.Bottom9)
-        Me.Controls.Add(Me.Top7)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Top6)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Top8)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.Top5)
+        Me.ClientSize = New System.Drawing.Size(793, 487)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox12)
+        Me.Controls.Add(Me.PictureBox11)
+        Me.Controls.Add(Me.PictureBox10)
+        Me.Controls.Add(Me.PictureBox9)
+        Me.Controls.Add(Me.PictureBox8)
+        Me.Controls.Add(Me.PictureBox7)
+        Me.Controls.Add(Me.PictureBox6)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.Top3)
-        Me.Controls.Add(Me.Bottom3)
-        Me.Controls.Add(Me.Top2)
-        Me.Controls.Add(Me.Bottom2)
-        Me.Controls.Add(Me.Top4)
-        Me.Controls.Add(Me.Bottom4)
-        Me.Controls.Add(Me.Top1)
-        Me.Controls.Add(Me.Bottom1)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.Bottom11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom12, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Bottom1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Bottom1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top1 As System.Windows.Forms.Button
-    Friend WithEvents Bottom4 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top4 As System.Windows.Forms.Button
-    Friend WithEvents Top2 As System.Windows.Forms.Button
-    Friend WithEvents Bottom2 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top3 As System.Windows.Forms.Button
-    Friend WithEvents Bottom3 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top7 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top6 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top8 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top5 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top11 As System.Windows.Forms.Button
-    Friend WithEvents Bottom11 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top10 As System.Windows.Forms.Button
-    Friend WithEvents Bottom10 As System.Windows.Forms.PictureBox
-    Friend WithEvents top12 As System.Windows.Forms.Button
-    Friend WithEvents Bottom12 As System.Windows.Forms.PictureBox
-    Friend WithEvents Top9 As System.Windows.Forms.Button
-    Friend WithEvents Bottom9 As System.Windows.Forms.PictureBox
 
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents PictureBox9 As PictureBox
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents PictureBox11 As PictureBox
+    Friend WithEvents PictureBox12 As PictureBox
+    Friend WithEvents Button1 As Button
 End Class
