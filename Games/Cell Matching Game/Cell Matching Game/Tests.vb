@@ -13,9 +13,9 @@ Public Class Tests
     End Sub
 
 
-    Private Function GetSimulatedFormWithPictureBoxControls() As Form
+    Private Function GetSimulatedFormWithPictureBoxControls() As Form1
 
-        Dim form = New Form
+        Dim form = New Form1
         For i As Integer = 1 To 12
             form.Controls.Add(New PictureBox())
         Next

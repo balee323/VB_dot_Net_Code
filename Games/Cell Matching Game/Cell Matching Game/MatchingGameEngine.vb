@@ -10,11 +10,15 @@ Public Class MatchingGameEngine
     Private _flippedOverCount As Integer = 0
     Private _firstFlippedCard As Card
     Private _secondFlippedCard As Card
+    Private _score As Integer = 0
+    Private _scoreForWin As Integer = 0
+    Private _form As Form1
 
 
 
-    Public Sub New(gameSize As GameSize, form As Form)
+    Public Sub New(gameSize As GameSize, form As Form1)
         Me._gameSize = gameSize
+        Me._form = form
         Me._pictureBoxes = form.Controls.OfType(Of PictureBox).ToList()
 
     End Sub
@@ -71,6 +75,11 @@ Public Class MatchingGameEngine
     End Sub
 
     Public Sub Reset()
+        _form.WinnerLabel.Visible = False
+        _score = 0
+        _flippedOverCount = 0
+        _firstFlippedCard = Nothing
+        _secondFlippedCard = Nothing
         For Each card In _cardList
             card.IsMatched = False
         Next
@@ -78,8 +87,6 @@ Public Class MatchingGameEngine
     End Sub
 
     Public Sub CheckForMatch()
-
-
 
         If _flippedOverCount < 2 Then
             Return
@@ -93,8 +100,12 @@ Public Class MatchingGameEngine
             If (_firstFlippedCard.ImageNumber.Equals(_secondFlippedCard.ImageNumber)) Then
                 _firstFlippedCard.IsMatched = True
                 _secondFlippedCard.IsMatched = True
+                _score += 1
+                If (_score = _scoreForWin) Then
+                    _form.WinnerLabel.Visible = True
+                End If
             Else
-                HideCards()
+                    HideCards()
             End If
             _flippedOverCount = 0
         End If
@@ -104,8 +115,9 @@ Public Class MatchingGameEngine
 
 
     Private Sub CreateSmallGameBoard()
-        _cardList.Clear()
+        _scoreForWin = 6
 
+        _cardList.Clear()
 
         _pictureBoxes = Shuffle(_pictureBoxes)
 
@@ -129,8 +141,6 @@ Public Class MatchingGameEngine
         Dim r As Random = New Random()
         Shuffle = collection.OrderBy(Function(a) r.Next()).ToList()
     End Function
-
-
 
 
 

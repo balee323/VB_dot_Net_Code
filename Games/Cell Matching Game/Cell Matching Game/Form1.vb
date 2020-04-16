@@ -5,6 +5,11 @@ Public Class Form1
 
     Dim _matchingGameEngine As MatchingGameEngine = Nothing
 
+    Public ReadOnly Property WinnerLabel As Label
+        Get
+            Return Me.Label1
+        End Get
+    End Property
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _matchingGameEngine = New MatchingGameEngine(GameSize.Small, Me)
