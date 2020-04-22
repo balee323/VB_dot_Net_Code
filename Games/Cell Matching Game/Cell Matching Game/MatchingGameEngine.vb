@@ -43,10 +43,12 @@ Public Class MatchingGameEngine
         For Each card In _cardList
             If card.PictureBox.Equals(pictureBox) Then
                 cardImage = card.CardImage
-                If (_flippedOverCount = 1) Then
+                If (_flippedOverCount = 1 And Not card.IsMatched) Then
                     _firstFlippedCard = card
-                ElseIf (_flippedOverCount = 2) Then
+                ElseIf (_flippedOverCount = 2 And Not card.IsMatched) Then
                     _secondFlippedCard = card
+                Else
+                    _flippedOverCount -= 1
                 End If
 
             End If
@@ -57,7 +59,7 @@ Public Class MatchingGameEngine
         If (_flippedOverCount > 2) Then
             HideCards()
             _flippedOverCount = 0
-            Return My.Resources.bluecardback
+            'Return My.Resources.bluecardback
         End If
 
 
@@ -87,6 +89,8 @@ Public Class MatchingGameEngine
     End Sub
 
     Public Sub CheckForMatch()
+
+
 
         If _flippedOverCount < 2 Then
             Return
