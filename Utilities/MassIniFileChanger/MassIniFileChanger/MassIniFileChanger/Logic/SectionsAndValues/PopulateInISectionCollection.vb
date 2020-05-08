@@ -14,7 +14,6 @@
 
     Public Function Start(WorkingFolder As String, Section As String, WorkingFileList As List(Of String), WithComments As Boolean, IsNewKeyValue As Boolean, Optional newKey As String = "") As Integer
 
-
         Me.WorkingFolder = WorkingFolder
         Me.Section = Section
         Me.WithComments = WithComments
@@ -38,9 +37,6 @@
 
         Me.newKey = newKey
 
-        'TODO -- Not yet implemented.  Will take significant work...
-
-
         Try
             addNewKeys()
         Catch ex As Exception
@@ -49,17 +45,9 @@
 
         End Try
 
-
-
-
-
         Return 0
 
     End Function
-
-
-
-
 
 
     Public Sub clearSectionValueCollection()
@@ -67,24 +55,15 @@
     End Sub
 
 
-
     Private Sub getData()
 
         Dim RunAddNewFilesOnce As Boolean = False
 
-
         For Each fileName As String In CollectionList.WorkingFileList
-
-            'Dim keys As New List(Of String) 'keys
-
-
-
             If RunOnce = False Then
                 keys.AddRange(gatherKeys(WorkingFolder, fileName))
                 RunOnce = True
             End If
-
-
 
             'adds new key to bottom
             If IsNewKeyValue And RunAddNewFilesOnce = False Then
@@ -92,30 +71,18 @@
                 RunAddNewFilesOnce = True
             End If
 
-
-            Dim i As Integer = 0
-            While i < keys.Count
-
-                'unit testing
-                'If i < keys.Count Then
-                '    INIconfigUI.LstLog.Items.Add("Added Values: " & keys.Item(i))
-                'End If
-                '-----------
-
-                i = i + 1
-            End While
-
-
-
             'create code to see if INISection Object Exists for Store
             If CollectionList.InISections.Count > 0 Then
                 Dim ExistingINIsectionFound As Boolean = False
+
+                'the statment nesting here is too deep
                 For Each ExistingINIsection In CollectionList.InISections
                     If ExistingINIsection.getStoreNum = getStoreNum(fileName) Then
                         inISection = ExistingINIsection
                         ExistingINIsectionFound = True
                     End If
                 Next
+
                 If ExistingINIsectionFound = False Then 'Addes new INIsection object if Object not found above
                     inISection = New InISection(Section, keys, getStoreNum(fileName))
 
@@ -135,33 +102,16 @@
 
                 'add object to collection
                 CollectionList.InISections.Add(inISection)
-
-
             End If
-
-
-
-            'add TxtLines Read
-            'inISection.SetTxtLinesRead(TxtLinesRead)
-
-            'add object to collection
-            ' CollectionList.InISections.Add(inISection)
-
         Next
 
     End Sub
 
-    'HACK -- Gather Keys per File
-    'Per File
+
     Private Function gatherKeys(WorkingFolder As String, FileName As String) As List(Of String)
 
         Dim FoundKeyValuePairs As New List(Of String)
-        'Unit testing
-        ' INIconfigUI.LstLog.Items.Add("File: " & FileName & "  Section: " & Section)
-        '----------------
-
         Dim CurrentLine As String = ""
-
         Dim r As System.IO.StreamReader = New System.IO.StreamReader(WorkingFolder & "\" & FileName)
 
         Do While r.EndOfStream = False
@@ -171,8 +121,6 @@
                 Do While r.EndOfStream = False
                     CurrentLine = r.ReadLine ' advances to next line
                     TxtLinesRead = TxtLinesRead + 1 'iterates for each line read
-                    'Unit testing
-                    'INIconfigUI.LstLog.Items.Add("Current Line: " & CurrentLine)
                     If WithComments = True Then
                         If Not ((CurrentLine.Contains("[") Or CurrentLine = "")) Then 'Will add comment line
                             FoundKeyValuePairs.Add(CurrentLine)
@@ -193,12 +141,9 @@
                             INIconfigUI.LstLog.Items.Add("Line Not added")
                             '-------------
                         End If
-
                     End If
+
                     If CurrentLine.Contains("[") Then 'Works
-                        'Unit testing
-                        ' INIconfigUI.LstLog.Items.Add("Next Section Found")
-                        '--------------
                         r.Close() 'close the stream reader
                         Return FoundKeyValuePairs 'since at the end of the Section
                     End If
@@ -212,17 +157,12 @@
     End Function
 
 
-
-
     Private Function getStoreNum(FileName As String) As String
+
         Dim storeNum As String = "0000"
         Dim tempArray As String()
-
         tempArray = FileName.Split(".")
-
         storeNum = tempArray(0)
-        '  INIconfigUI.LstLog.Items.Add(tempArray(0))
-
 
         Return storeNum
     End Function
@@ -230,9 +170,5 @@
     Private Sub addNewKeys()
         Throw New NotImplementedException
     End Sub
-
-
-
-
 
 End Class

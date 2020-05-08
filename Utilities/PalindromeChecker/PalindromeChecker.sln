@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Basic Express 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PalindromeChecker", "PalindromeChecker\PalindromeChecker.vbproj", "{ABDEF364-3FC0-44B2-A863-F96AD34D4ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABDEF364-3FC0-44B2-A863-F96AD34D4ADA}.Debug|x86.ActiveCfg = Debug|x86
+		{ABDEF364-3FC0-44B2-A863-F96AD34D4ADA}.Debug|x86.Build.0 = Debug|x86
+		{ABDEF364-3FC0-44B2-A863-F96AD34D4ADA}.Release|x86.ActiveCfg = Release|x86
+		{ABDEF364-3FC0-44B2-A863-F96AD34D4ADA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

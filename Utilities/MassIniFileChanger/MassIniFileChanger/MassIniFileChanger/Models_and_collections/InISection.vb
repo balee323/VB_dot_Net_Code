@@ -1,6 +1,5 @@
 ﻿Public Class InISection
 
-
     'keys have values, so this needs to be re-thought a bit
 
     Private INIsection As String
@@ -46,20 +45,13 @@
 
     Public Sub changeKeyValue(newValue As String, currentValue As String)
 
-
-
-
-        'good ole loop works fine though
         Dim i As Integer = 0
         While i < Keys.Count
 
-            '   INIconfigUI.LstLog.Items.Add("checking item" & Keys(i))
             If Keys(i) = currentValue Then
                 INIconfigUI.LstLog.Items.Add("Item Found")
 
-                'unit testing
                 Keys(i) = newValue
-                ' Keys.Item(0) = "xxxxxx"
 
                 INIconfigUI.LstLog.Items.Add("item changed to: " & Keys(i))
 
@@ -68,15 +60,9 @@
                     INIconfigUI.LstLog.Items.Add("Item removed")
                 End If
 
-
-
-
             End If
-            i = i + 1
+            i += 1
         End While
-
-
-
 
     End Sub
 

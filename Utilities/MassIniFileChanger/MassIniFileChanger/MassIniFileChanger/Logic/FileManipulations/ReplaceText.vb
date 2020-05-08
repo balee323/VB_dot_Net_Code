@@ -3,8 +3,6 @@ Imports System.Text
 
 Public Class ReplaceText
 
-
-
     Private WorkingFolder As String
     Private Section As String
     Private StoreNum As String
@@ -13,7 +11,6 @@ Public Class ReplaceText
     Public Function Start(WorkingFolder As String, Section As String) As Integer
         Me.WorkingFolder = WorkingFolder
         Me.Section = Section
-
         checkForSlash()
 
         Try
@@ -28,47 +25,29 @@ Public Class ReplaceText
 
     End Function
 
-    'Reads form a file starting at a certain line "[Section]" and adds all lines to a collection list.  
-    'Stops reading lines at a stop point "["
-
-
-
     Private Sub UpdateAllTextFiles()
-
-
-
         For Each inISection As InISection In CollectionList.InISections
-
             Dim keys As New List(Of String) 'keys
-
             keys.AddRange(inISection.getKeys) 'get all the keys for InISection Object
             StoreNum = inISection.getStoreNum
             Dim FileName As String = StoreNum + ".ini"
-
             'run update code...
-            UpDateText(WorkingFolder, FileName, keys)
-
-
+            UpDateTextInFiles(WorkingFolder, FileName, keys)
         Next
-
     End Sub
 
-    Private Sub UpDateText(WorkingFolder As String, FileName As String, Keys As List(Of String))
 
-
-        'Unit testing
-        INIconfigUI.LstLog.Items.Add("File: " & FileName & "  Section: " & Section)
-        '----------------
+    ''' <summary>
+    ''' Reads form a file starting at a certain line "[Section]" and adds all lines to a collection list.  
+    ''' Stops reading lines at a stop point "["
+    ''' </summary>
+    Private Sub UpDateTextInFiles(WorkingFolder As String, FileName As String, Keys As List(Of String))
 
         Dim CurrentLine As String = ""
         Dim NewFile As New StringBuilder
-
         Dim iniFile As System.IO.StreamReader = New System.IO.StreamReader(WorkingFolder & FileName)
 
         'Building out the StringBuilder for the new File.
-
-
-
         Do While iniFile.Peek > -1
             CurrentLine = iniFile.ReadLine() 'advances next line
             NewFile.Append(CurrentLine & vbCrLf) 'Adds current line to StringBuilder
@@ -78,11 +57,7 @@ Public Class ReplaceText
                 CurrentLine = iniFile.ReadLine()
 
                 Do While iniFile.EndOfStream = False
-
                     If CurrentLine.Contains("[") Then 'Works
-                        'Unit testing
-                        INIconfigUI.LstLog.Items.Add("Next Section Found")
-                        '--------------
                         NewFile.Append(vbCrLf)
                         Exit Do
                     Else
@@ -115,12 +90,14 @@ Public Class ReplaceText
             End If
         Loop
 
+        iniFile.Close() 'close the stream reader 
 
-        iniFile.Close() 'close the stream reader
+        WriteSectionToFile(WorkingFolder, FileName, NewFile)
 
-        ' INIconfigUI.LstLog.Items.Add("String builder section Content: " + vbNewLine + NewFile.ToString())
+    End Sub
 
 
+    Private Shared Sub WriteSectionToFile(WorkingFolder As String, FileName As String, NewFile As StringBuilder)
         Try
 
             If Not My.Computer.FileSystem.DirectoryExists(WorkingFolder & "modified\") Then
@@ -133,13 +110,7 @@ Public Class ReplaceText
         Catch ex As Exception
             INIconfigUI.LstLog.Items.Add("error: " + ex.Message)
         End Try
-
-
-
     End Sub
-
-
-  
 
     Private Function IsMatch(CurrentLine As String, LineToAppend As String) As Boolean
 
@@ -151,36 +122,24 @@ Public Class ReplaceText
     End Function
 
 
-
-
-
     Private Function getStoreNum(FileName As String) As String
+
         Dim storeNum As String = "0000"
         Dim tempArray As String()
 
         tempArray = FileName.Split(".")
-
         storeNum = tempArray(0)
-        '  MessageBox.Show(tempArray(0))
-
 
         Return storeNum
+
     End Function
 
 
     Private Sub checkForSlash()
 
-
-        '   MessageBox.Show(IniFilePath)
-
         If WorkingFolder.Substring(WorkingFolder.Length - 1, 1) <> "\" Then
             WorkingFolder = WorkingFolder + "\"
         End If
-
-
-
-
-        '  MessageBox.Show(IniFilePath)
 
     End Sub
 

@@ -7,28 +7,19 @@ Public Class FolderSelectDialog
     Dim UseOtherLocation As Boolean = False
     Dim FileLocation As String = ""
 
-    Public Sub New()
 
+    Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-
         LayoutSetup()
-
     End Sub
 
     Public Sub New(showDefaultLocation As Boolean)
-
         Me.showDefaultLocation = showDefaultLocation
 
         ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-
         LayoutSetup()
-
     End Sub
 
 
@@ -43,33 +34,20 @@ Public Class FolderSelectDialog
             Me.Panel1.Visible = False
             Me.Panel2.Visible = True
             Me.Text = "Select working directory."
-            '   Dim btnViewDialog As New Button()
-            ' btnViewDialog.Text = "Choose Folder"
-            ' Me.Controls.Add(btnViewDialog)
-            ' BtnChoose.Parent = Me
-            '  BtnChoose.Visible = True
-
-
-
         End If
     End Sub
 
 
-
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-
         If Panel1.Visible Then
             If RBtnUseESD.Checked Then
                 UseDefault = True
             ElseIf RBtnChooseLocation.Checked Then
                 UseOtherLocation = True
             End If
-
         End If
 
-
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
-        'Me.Close()
         Me.Hide()
     End Sub
 
@@ -80,53 +58,35 @@ Public Class FolderSelectDialog
 
 
     Public Function GetLocation() As String
-
-
         If UseDefault Then
             FileLocation = "C:\temp\IniFileChanger\"
-
         End If
 
         checkForSlash(FileLocation)
-
-
         Return FileLocation
+
     End Function
 
-
+    'more repeated code...
     Private Sub checkForSlash(directory As String)
-
-
-
-
         If directory.Substring(directory.Length - 1, 1) <> "\" Then
             directory = directory + "\"
         End If
-
-      
     End Sub
-
 
 
     Private Sub RBtnChooseLocation_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RBtnChooseLocation.CheckedChanged
-
         If RBtnChooseLocation.Checked Then
-
             Dim fileSelectDialog As New FolderBrowserDialog
             fileSelectDialog.ShowDialog()
-
             FileLocation = fileSelectDialog.SelectedPath
-
         End If
-
-
     End Sub
 
-  
+
     Private Sub BtnChoose_Click(sender As System.Object, e As System.EventArgs)
         Dim fileSelectDialog As New FolderBrowserDialog
         fileSelectDialog.ShowDialog()
-
         FileLocation = fileSelectDialog.SelectedPath
     End Sub
 
@@ -134,31 +94,21 @@ Public Class FolderSelectDialog
         FileLocation = "C:\temp\IniFileChanger\WorkingFolder\"
     End Sub
 
-   
 
-  
     Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
-
         If RadioButton2.Checked Then
-
             Dim fileSelectDialog As New FolderBrowserDialog
             fileSelectDialog.ShowDialog()
-
             FileLocation = fileSelectDialog.SelectedPath
-
         End If
-
-
     End Sub
+
 
     Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
-
         If RadioButton1.Checked Then
-
             FileLocation = "C:\temp\IniFileChanger\WorkingFolder\"
-
         End If
     End Sub
 
-   
+
 End Class
